@@ -29,8 +29,6 @@
  */
 
 
-import ResearchKit.Private
-
 public class ORKSwiftStroopStepViewController: ORKActiveStepViewController {
     
     private let stroopContentView = ORKSwiftStroopContentView()

@@ -29,7 +29,6 @@
  */
 
 import XCTest
-import ResearchKit.Private
 
 class ORKCompletionStepViewControllerTests: XCTestCase {
     var completionController: ORKCompletionStepViewController!

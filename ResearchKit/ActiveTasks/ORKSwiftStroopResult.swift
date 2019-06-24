@@ -29,8 +29,6 @@
  */
 
 
-import ResearchKit.Private
-
 public class ORKSwiftStroopResult: ORKResult {
     
     public var startTime: TimeInterval?
