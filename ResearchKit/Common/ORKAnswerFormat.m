@@ -202,7 +202,9 @@ static NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattin
 }
 
 - (void)fetchDefaultValueForAnswerFormat:(ORKAnswerFormat *)answerFormat handler:(void(^)(id defaultValue, NSError *error))handler {
-    HKObjectType *objectType = [answerFormat healthKitObjectType];
+
+    handler(nil, nil);
+    /*HKObjectType *objectType = [answerFormat healthKitObjectType];
     BOOL handled = NO;
     if (objectType) {
         if ([HKHealthStore isHealthDataAvailable]) {
@@ -221,7 +223,7 @@ static NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattin
     }
     if (!handled) {
         handler(nil, nil);
-    }
+    }*/
 }
 
 - (HKUnit *)defaultHealthKitUnitForAnswerFormat:(ORKAnswerFormat *)answerFormat {
