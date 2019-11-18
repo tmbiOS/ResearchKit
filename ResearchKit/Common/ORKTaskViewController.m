@@ -946,27 +946,29 @@ static NSString *const _ChildNavigationControllerRestorationKey = @"childNavigat
     }
     
     ORKWeakTypeOf(self) weakSelf = self;
-    [self.pageViewController setViewControllers:@[viewController] direction:direction animated:animated completion:^(BOOL finished) {
-        
-        if (weakSelf == nil) {
-            ORK_Log_Debug(@"Task VC has been dismissed, skipping block code");
-            return;
-        }
-        
-        ORKStrongTypeOf(weakSelf) strongSelf = weakSelf;
-        
-        ORK_Log_Debug(@"%@ %@", strongSelf, viewController);
-        
-        // Set the progress label only if non-nil or if it is nil having previously set a progress label.
-        if (progressLabel || strongSelf->_hasSetProgressLabel) {
-            strongSelf.pageViewController.navigationItem.rightBarButtonItem = [strongSelf rightBarItemWithText:progressLabel];
-        }
-        
-        strongSelf->_hasSetProgressLabel = (progressLabel != nil);
-        
-        // Collect toolbarItems
-        [strongSelf collectToolbarItemsFromViewController:viewController];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.pageViewController setViewControllers:@[viewController] direction:direction animated:false completion:^(BOOL finished) {
+
+            if (weakSelf == nil) {
+                ORK_Log_Debug(@"Task VC has been dismissed, skipping block code");
+                return;
+            }
+
+            ORKStrongTypeOf(weakSelf) strongSelf = weakSelf;
+
+            ORK_Log_Debug(@"%@ %@", strongSelf, viewController);
+
+            // Set the progress label only if non-nil or if it is nil having previously set a progress label.
+            if (progressLabel || strongSelf->_hasSetProgressLabel) {
+                strongSelf.pageViewController.navigationItem.rightBarButtonItem = [strongSelf rightBarItemWithText:progressLabel];
+            }
+
+            strongSelf->_hasSetProgressLabel = (progressLabel != nil);
+
+            // Collect toolbarItems
+            [strongSelf collectToolbarItemsFromViewController:viewController];
+        }];
+    });
 }
 
 - (BOOL)shouldPresentStep:(ORKStep *)step {
