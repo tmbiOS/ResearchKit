@@ -46,6 +46,7 @@ static const CFTimeInterval DEFAULT_ANIMATION_DURATION = 1.25;
 
 
 - (instancetype)init {
+  //temp message
     self = [super init];
     if (self) {
         _color = [[self tintColor] colorWithAlphaComponent:0.8];
