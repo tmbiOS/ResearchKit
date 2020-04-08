@@ -214,6 +214,9 @@
         case UITouchPhaseStationary:
             phaseString = @"stationary";
             break;
+        default:
+            phaseString = @"default";
+            break;
     }
     
     return [NSString stringWithFormat:@"<%@: %p; phase: %@; timestamp: %.6f; location: (%@, %@)>", self.class.description, self, phaseString, self.timestamp, @(self.locationInWindow.x), @(self.locationInWindow.y)];
