@@ -187,7 +187,8 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
         _topContentImageView = [UIImageView new];
     }
     _topContentImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_topContentImageView setBackgroundColor:ORKColor(ORKTopContentImageViewBackgroundColorKey)];
+    [_topContentImageView setBackgroundColor:UIColor.whiteColor];
+		_topContentImageView.clipsToBounds = YES;
     [self addSubview:_topContentImageView];
     [self setTopContentImageViewConstraints];
 }
