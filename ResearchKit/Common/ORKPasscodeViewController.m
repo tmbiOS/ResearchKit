@@ -90,7 +90,9 @@
     step.passcodeFlow = passcodeFlow;
     step.passcodeType = passcodeType;
     step.text = text;
-    
+		step.headerTextAlignment = NSTextAlignmentCenter;
+		step.bodyItemTextAlignment = NSTextAlignmentJustified;
+	    
     ORKPasscodeStepViewController *passcodeStepViewController = [ORKPasscodeStepViewController new];
     passcodeStepViewController.passcodeDelegate = delegate;
     passcodeStepViewController.step = step;

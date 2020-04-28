@@ -263,7 +263,7 @@
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
 }
 
-- (IBAction)next {
+- (IBAction)next {	
     ORKConsentSceneViewController *currentConsentSceneViewController = [self viewControllerForIndex:[self currentIndex]];
     [(ORKAnimationPlaceholderView *)_animationView scrollToTopAnimated:YES completion:nil];
     [currentConsentSceneViewController scrollToTopAnimated:YES completion:^(BOOL finished) {
@@ -278,6 +278,7 @@
     animationViewFrame.origin = [ORKDynamicCast(_animationView, ORKAnimationPlaceholderView) defaultFrameOrigin];
     _animationView.frame = animationViewFrame;
     ORKConsentSceneViewController *nextConsentSceneViewController = [self viewControllerForIndex:[self currentIndex] + 1];
+		nextConsentSceneViewController.step = self.step;
     [(ORKAnimationPlaceholderView *)_animationView scrollToTopAnimated:NO completion:nil];
     [nextConsentSceneViewController scrollToTopAnimated:NO completion:^(BOOL finished) {
         // 'finished' is always YES when not animated
@@ -539,6 +540,8 @@
         }
         return;
     }
+		
+		viewController.step = self.step;
     // Stop old hairline scroll view observer and start new one
     _scrollViewObserver = [[ORKScrollViewObserver alloc] initWithTargetView:viewController.scrollView delegate:self];
 

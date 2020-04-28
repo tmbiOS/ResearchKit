@@ -35,6 +35,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class ORKConsentSection;
+@class ORKStep;
 
 @interface ORKConsentSceneViewController : UIViewController
 
@@ -49,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) NSString *learnMoreButtonTitle;
 
 @property (nonatomic, assign) BOOL imageHidden;
+
+@property (nonatomic, strong, nullable) ORKStep *step;
 
 @end
 

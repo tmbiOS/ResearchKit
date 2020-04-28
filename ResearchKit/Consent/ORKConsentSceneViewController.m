@@ -46,6 +46,7 @@
 #import "ORKHelpers_Internal.h"
 #import "ORKSkin.h"
 
+#import "ORKStep.h"
 
 @interface ORKConsentSceneView ()
 
@@ -123,6 +124,9 @@ static NSString *localizedLearnMoreForType(ORKConsentSectionType sectionType) {
     _sceneView = [ORKConsentSceneView new];
     _sceneView.consentSection = _section;
     _sceneView.stepTitle = _section.title;
+		_sceneView.stepHeaderTextAlignment = _step.headerTextAlignment;
+		_sceneView.bodyTextAlignment = _step.bodyItemTextAlignment;
+	
     [self.view addSubview:_sceneView];
     
     if (_section.content.length||_section.htmlContent.length || _section.contentURL) {

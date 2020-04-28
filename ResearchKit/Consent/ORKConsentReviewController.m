@@ -103,7 +103,7 @@ static const CGFloat iPadStepTitleLabelFontSize = 50.0;
     _toolbar.translucent = YES;
 
     _webView.clipsToBounds = NO;
-    _webView.scrollView.clipsToBounds = NO;
+    _webView.scrollView.clipsToBounds = NO;	
     [self updateLayoutMargins];
 
     [self setupiPadStepTitleLabel];

@@ -343,6 +343,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     [paragraphStyle setHyphenationFactor:0.5];
+		[paragraphStyle setAlignment:_stepHeaderTextAlignment];
     
     NSDictionary *hyphenAttribute = @{NSParagraphStyleAttributeName : paragraphStyle};
     

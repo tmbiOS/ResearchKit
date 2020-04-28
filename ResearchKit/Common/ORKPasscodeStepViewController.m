@@ -97,6 +97,7 @@ static CGFloat const kForgotPasscodeHeight              = 100.0f;
         [self.view addSubview:_accessibilityPasscodeField];
         
         _passcodeStepView = [ORKPasscodeStepView new];
+				_passcodeStepView.step = self.step;
         _passcodeStepView.stepText = [self passcodeStep].text;
         _passcodeStepView.textField.delegate = self;
         

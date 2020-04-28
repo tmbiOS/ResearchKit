@@ -35,10 +35,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class ORKPasscodeTextField;
+@class ORKStep;
 
 @interface ORKPasscodeStepView : ORKStepContainerView
 
 @property (nonatomic, strong, readonly) ORKPasscodeTextField *textField;
+
+@property (nonatomic, strong, nullable) ORKStep *step;
 
 @end
 

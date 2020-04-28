@@ -34,7 +34,7 @@
 
 #import "ORKStepHeaderView_Internal.h"
 #import "ORKTextFieldView.h"
-
+#import "ORKStep.h"
 
 @implementation ORKPasscodeStepView {
     ORKPasscodeTextField *_textField;
@@ -51,9 +51,15 @@
         // Setting image view with app icon (if available).
         NSDictionary *infoPlist = [[NSBundle mainBundle] infoDictionary];
         NSString *icon = [[infoPlist valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
-        self.titleIconImage = [UIImage imageNamed:icon];
+			self.titleIconImage = [UIImage imageNamed:icon];
     }
     return self;
+}
+
+- (void)setStep:(ORKStep *)step {
+	_step = step;
+	self.stepHeaderTextAlignment = step.headerTextAlignment;
+	self.bodyTextAlignment = step.bodyItemTextAlignment;
 }
 
 - (ORKPasscodeTextField *)textField {
