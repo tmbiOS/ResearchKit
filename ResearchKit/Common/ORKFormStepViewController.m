@@ -377,7 +377,7 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
         NSSet<HKObjectType *> *alreadyRequested = [[self taskViewController] requestedHealthTypesForRead];
         if (![types isSubsetOfSet:alreadyRequested]) {
             refreshDefaultsPending = YES;
-            [_defaultSource.healthStore requestAuthorizationToShareTypes:nil readTypes:types completion:^(BOOL success, NSError *error) {
+            [_defaultSource.healthStore requestAuthorizationToShareTypes:types readTypes:types completion:^(BOOL success, NSError *error) {
                 if (!success) {
                     ORK_Log_Debug("Authorization: %@",error);
                 }
