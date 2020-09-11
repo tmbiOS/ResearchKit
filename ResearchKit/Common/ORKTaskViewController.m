@@ -180,7 +180,16 @@ static NSString *const _ChildNavigationControllerRestorationKey = @"childNavigat
     _childNavigationController = [[UINavigationController alloc] initWithRootViewController:emptyViewController];
     _childNavigationController.delegate = self;
     
-    [_childNavigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    if (@available(iOS 12.0, *)) {
+      if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+        UIImage* image = [[UIImage imageNamed:@"navbar-bg"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch];
+        [_childNavigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+      } else {
+        [_childNavigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+      }
+    } else {
+      [_childNavigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    }
     [_childNavigationController.navigationBar setShadowImage:[UIImage new]];
     [_childNavigationController.navigationBar setTranslucent:NO];
     [_childNavigationController.navigationBar setBarTintColor:ORKColor(ORKBackgroundColorKey)];

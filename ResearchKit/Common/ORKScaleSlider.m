@@ -80,6 +80,9 @@
         
         _axLastOutputTime = 0;
         _thumbImageNeedsTransformUpdate = NO;
+      
+        [self setThumbImage:[UIImage imageNamed:@"slider-thumb-image"] forState:UIControlStateNormal];
+        self.minimumTrackTintColor = [UIColor colorNamed:@"main-tint-color"];
     }
     return self;
 }

@@ -95,7 +95,6 @@ static const CGFloat FooterViewHeightOffset = 20.0;
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
     }
     
-    _tableView.backgroundColor = ORKColor(ORKBackgroundColorKey);
     _tableView.allowsSelection = YES;
     _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     _tableView.preservesSuperviewLayoutMargins = YES;

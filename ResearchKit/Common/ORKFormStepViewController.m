@@ -580,7 +580,8 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
             }
             else {
                 if (@available(iOS 13.0, *)) {
-                    [_tableView setBackgroundColor:[UIColor systemGroupedBackgroundColor]];
+                    UIColor* color = [UIColor colorNamed:@"bg-color"];
+                    [_tableView setBackgroundColor:color];
                 } else {
                     [_tableView setBackgroundColor:ORKColor(ORKBackgroundColorKey)];
                 }
