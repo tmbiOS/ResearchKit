@@ -182,7 +182,7 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
     _progressLabel.text = _progressText;
     _progressLabel.numberOfLines = 0;
     if (@available(iOS 13.0, *)) {
-        _progressLabel.textColor = [UIColor secondaryLabelColor];
+        _progressLabel.textColor = [UIColor colorNamed:@"color3-opacity-1"];
     } else {
         _progressLabel.textColor = [UIColor lightGrayColor];
     }
@@ -214,9 +214,7 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
 }
 
 - (UIFont *)titleLabelFont {
-    UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    UIFontDescriptor *fontDescriptor = [descriptor fontDescriptorWithSymbolicTraits:(UIFontDescriptorTraitBold)];
-    return [UIFont fontWithDescriptor:fontDescriptor size:[[fontDescriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]];
+    return [UIFont systemFontOfSize:17.0 weight: UIFontWeightRegular];
 }
 
 - (UIFont *)detailTextLabelFont {
@@ -225,9 +223,7 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
 }
 
 - (UIFont *)progressLabelFont {
-    UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
-    UIFontDescriptor *fontDescriptor = [descriptor fontDescriptorWithSymbolicTraits:(UIFontDescriptorTraitBold)];
-    return [UIFont fontWithDescriptor:fontDescriptor size:[[fontDescriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]];
+    return [UIFont systemFontOfSize:12.0 weight: UIFontWeightRegular];
 }
 
 - (UIFont *)selectAllThatApplyFont {

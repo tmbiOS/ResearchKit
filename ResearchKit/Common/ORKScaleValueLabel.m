@@ -37,8 +37,7 @@
 @implementation ORKScaleValueLabel
 
 + (UIFont *)defaultFont {
-    UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleHeadline];
-    return ORKLightFontWithSize(((NSNumber *)[descriptor objectForKey: UIFontDescriptorSizeAttribute]).doubleValue + 18.0);
+    return [UIFont systemFontOfSize:23.0 weight:UIFontWeightBold];
 }
 
 - (CGSize)intrinsicContentSize {
