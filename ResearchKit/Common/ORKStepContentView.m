@@ -191,6 +191,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     if (@available(iOS 13.0, *)) {
         [_topContentImageView setBackgroundColor:UIColor.secondarySystemBackgroundColor];
     } else {
+        [_topContentImageView setBackgroundColor:UIColor.whiteColor];
     }
 		_topContentImageView.clipsToBounds = YES;
     [self addSubview:_topContentImageView];

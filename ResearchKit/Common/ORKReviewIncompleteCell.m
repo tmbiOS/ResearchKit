@@ -55,7 +55,9 @@ static const CGFloat verticalPadding = 10.0;
     cardView = [[UIView alloc] init];
     cardView.translatesAutoresizingMaskIntoConstraints = NO;
     if (@available(iOS 13.0, *)) {
-        cardView.backgroundColor = [UIColor colorNamed:@"group-bg-color"];
+        UIColor* vitimColor = [UIColor colorNamed:@"group-bg-color"];
+        UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+        cardView.backgroundColor = color;
     } else {
         cardView.backgroundColor = [UIColor whiteColor];
     }
@@ -98,7 +100,9 @@ static const CGFloat verticalPadding = 10.0;
         }
     } else {
         if (@available(iOS 13.0, *)) {
-            cardView.backgroundColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* vitimColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+            cardView.backgroundColor = color;
         } else {
             cardView.backgroundColor = [UIColor whiteColor];
         }

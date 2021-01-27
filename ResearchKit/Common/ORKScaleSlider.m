@@ -81,8 +81,14 @@
         _axLastOutputTime = 0;
         _thumbImageNeedsTransformUpdate = NO;
       
-        [self setThumbImage:[UIImage imageNamed:@"slider-thumb-image"] forState:UIControlStateNormal];
-        self.minimumTrackTintColor = [UIColor colorNamed:@"main-tint-color"];
+        UIImage* thumbImage = [UIImage imageNamed:@"slider-thumb-image"];
+        if (thumbImage != nil) {
+          [self setThumbImage:thumbImage forState:UIControlStateNormal];
+        }
+        UIColor* tintColor = [UIColor colorNamed:@"main-tint-color"];
+        if (tintColor != nil) {
+          self.minimumTrackTintColor = tintColor;
+        }
     }
     return self;
 }

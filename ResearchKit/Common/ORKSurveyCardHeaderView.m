@@ -182,7 +182,9 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
     _progressLabel.text = _progressText;
     _progressLabel.numberOfLines = 0;
     if (@available(iOS 13.0, *)) {
-        _progressLabel.textColor = [UIColor colorNamed:@"color3-opacity-1"];
+        UIColor* vitimColor = [UIColor colorNamed:@"color3-opacity-1"];
+        UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondaryLabelColor];
+        _progressLabel.textColor = color;
     } else {
         _progressLabel.textColor = [UIColor lightGrayColor];
     }
@@ -250,7 +252,9 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
         UIColor *fillColor;
         UIColor *borderColor;
         if (@available(iOS 13.0, *)) {
-            fillColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* vitimColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+            fillColor = color;
             borderColor = UIColor.separatorColor;
         } else {
             fillColor = [UIColor whiteColor];

@@ -287,7 +287,9 @@
 
         UIColor *fillColor;
         if (@available(iOS 13.0, *)) {
-            fillColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* vitimColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+            fillColor = color;
         } else {
             fillColor = [UIColor ork_borderGrayColor];
         }
@@ -295,7 +297,9 @@
         
         CAShapeLayer *foreLayer = [CAShapeLayer layer];
         if (@available(iOS 13.0, *)) {
-            [foreLayer setFillColor:[[UIColor colorNamed:@"group-bg-color"] CGColor]];
+            UIColor* vitimColor = [UIColor colorNamed:@"group-bg-color"];
+            UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+            [foreLayer setFillColor:[color CGColor]];
         } else {
             [foreLayer setFillColor:[[UIColor whiteColor] CGColor]];
         }

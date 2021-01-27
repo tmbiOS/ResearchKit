@@ -258,7 +258,9 @@ static const CGFloat rungButtonPadding = 10.0;
 
 - (void)updateFillColor {
     if (@available(iOS 13.0, *)) {
-        _fillColor = [UIColor colorNamed:@"group-bg-color"];
+        UIColor* vitimColor = [UIColor colorNamed:@"mainBackgroundColor"];
+        UIColor* color = vitimColor != nil ? vitimColor : [UIColor secondarySystemGroupedBackgroundColor];
+        _fillColor = color;
         // FIXME:- dark mode color displays solid black after animation ends if the views are stacked
         if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
             _fillColor = [UIColor colorWithRed:0.173 green:0.173 blue:0.180 alpha:1.0];
