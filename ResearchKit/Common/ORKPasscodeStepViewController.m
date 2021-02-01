@@ -426,7 +426,7 @@ static CGFloat const kForgotPasscodeHeight              = 100.0f;
                     if ([strongSelf passcodeStep].passcodeFlow == ORKPasscodeFlowAuthenticate) {
                         [strongSelf.passcodeDelegate passcodeViewControllerDidFinishWithSuccess:strongSelf];
                     }
-                } else if (error.code != LAErrorUserCancel) {
+                } else if (error.code != LAErrorUserCancel && error.code != LAErrorSystemCancel) {
                     // Display the error message.
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:ORKLocalizedString(@"PASSCODE_TOUCH_ID_ERROR_ALERT_TITLE", nil)
                                                                                    message:error.localizedDescription
