@@ -265,7 +265,7 @@ static CGFloat const kForgotPasscodeHeight              = 100.0f;
 }
 
 - (BOOL)faceIDAvailable {
-  LAContext* context;
+  LAContext* context = [[LAContext alloc] init];
   return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:nil] && context.biometryType == LABiometryTypeFaceID;
 }
 
