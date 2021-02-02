@@ -250,8 +250,23 @@ static CGFloat const kForgotPasscodeHeight              = 100.0f;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self stepDidChange];
+  [super viewDidLoad];
+  [self stepDidChange];
+  [self configureNavButton];
+}
+
+- (void)configureNavButton {
+  if (@available(iOS 13.0, *)) {
+    UIImage* image = [self faceIDAvailable] == YES ? [UIImage systemImageNamed:@"faceid"] : [UIImage systemImageNamed:@"touchid"];
+    UIBarButtonItem* touchButton = [[UIBarButtonItem alloc] initWithImage:image
+                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(promptTouchId)];
+    self.navigationItem.rightBarButtonItem = touchButton;
+  }
+}
+
+- (BOOL)faceIDAvailable {
+  LAContext* context;
+  return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:nil] && context.biometryType == LABiometryTypeFaceID;
 }
 
 - (void)updatePasscodeView {
