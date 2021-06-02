@@ -39,7 +39,7 @@
 - (NSString *)HTMLForSection:(ORKConsentSection *)section {
     NSString *title = section.formalTitle ?: (section.title ?: @"");
     NSString *content = section.htmlContent ?: (section.escapedContent ?: @"");
-    return [NSString stringWithFormat:@"<h4>%@</h4><p>%@</p>", title, content];
+    return [NSString stringWithFormat:@"<h4>%@</h4><p class='description'>%@</p>", title, content];
 }
 
 @end

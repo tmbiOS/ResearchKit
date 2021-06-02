@@ -128,7 +128,7 @@
     if (mobile) {
         [css appendString:@".header { margin-top: 36px ; margin-bottom: 30px; text-align: center; }\n"];
         [css appendString:@"body { text-align: justify ; margin-left: 0px; margin-right: 0px; }\n"];
-        
+        [css appendString:@".description { text-align: left; font-family: -apple-system-font ; font-size: 18; font-weight: 200; }\n"];
         
         CGFloat adjustment = [[ORKSubheadlineLabel defaultFont] pointSize] - 17.0;
         NSArray *hPointSizes = @[ @([[ORKHeadlineLabel defaultFont] pointSize]),
